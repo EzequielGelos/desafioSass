@@ -1,0 +1,48 @@
+/* base*/
+@import "../base/operaciones";
+@import "../base/variables";
+@import "../base/extends";
+@import "../base/mixins";
+
+
+/*LOCALES HTML */ 
+.containerLocales{
+    display: grid;
+    min-height: $alturaprincipal - 300vh;
+    grid-template-areas: 
+    "nav nav"
+    "h2 h2"
+    "locales locales"
+    "footer footer";
+    grid-template-rows: 1fr 1fr 3fr 3fr;
+    .tituloLocales{
+        grid-area: h2;
+        @extend %flex;
+        align-items: center;
+        flex-direction: column;
+        font-style: italic;
+        h2 {
+            @extend %estilos-h3;
+            font-size: 4.2rem;
+            color: $color-principal;
+        }
+        img{
+            @include sizes (5rem,5rem);
+        }
+    }
+    .nombresLocales{
+        grid-area: locales;
+        p{
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 1000;
+            color: $color-principal;
+            margin: 3rem;
+        }
+        .localUno{
+            @extend %flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+}

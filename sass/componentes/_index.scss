@@ -1,0 +1,55 @@
+/* base*/
+@import "../base/operaciones";
+@import "../base/variables";
+@import "../base/mixins";
+
+
+/*grid de index */
+.container{
+    display: grid;
+    min-height: $alturaprincipal - 300vh;
+    grid-template-areas:
+    "nav nav"
+    "carrusel carrusel"
+    "imagenes imagenes"
+    "contenido contenido"
+    "footer footer";
+    grid-template-rows: 1fr 2fr 2fr 2fr 2fr;
+}
+
+/* CARRUSEL */
+.containerCarrusel{
+    grid-area: carrusel;
+}
+.carousel-item{
+    .imagenesProductosUno{
+        @include sizes (35rem,35rem);
+    }
+}
+/*  IMAGENES */
+.imagenes{
+    grid-area: imagenes;
+    display: flex;
+    justify-self: center;
+    img{
+        @include sizes (50%,60%);
+}
+}
+
+/* CONTENIDO */
+.contenido{
+    grid-area: contenido;
+    p{
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 800;
+        color: $color-principal;
+    }
+    .video{
+        @extend %flex;
+        margin-top: 2rem;
+        video{
+            @include sizes (40rem,20rem);
+        }
+    }
+}

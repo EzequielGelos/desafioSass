@@ -1,0 +1,69 @@
+/* base*/
+@import "../base/operaciones";
+@import "../base/variables";
+@import "../base/mapas";
+@import "../base/extends";
+@import "../base/mixins";
+
+/* grid de productos + estilos de fuentes*/
+.containerProductos{
+    min-height: $alturaprincipal - 300vh;
+    display: grid;
+    grid-template-areas: 
+    "nav nav"
+    "h2 h2"
+    "producto producto"
+    "stock stock"
+    "footer footer";
+    grid-template-rows: 1fr 1fr 2fr 1fr 2fr;
+    h2{
+        grid-area: h2;
+        @extend %estilos-h3;
+        font-size: map-get($map: $medida-font, $key: 3rem );
+        color: $color-principal;
+    }
+    .productos{
+        grid-area: producto;
+        column-gap: 10rem;
+        @extend %flex;
+        margin: 2rem;
+        h3{
+            color: $color-principal;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 1000;
+        }
+        img{
+            @include sizes(10rem,15rem);
+        }
+        p{
+            color: $color-principal;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 1000;
+        }
+    }
+    /* STOCK  */
+.stockPadre{
+    grid-area: stock;
+    margin-top: 5rem;
+    border: 1px white solid;
+    form{
+        fieldset{
+            color: $color-principal;
+            font-weight: 800;
+            font-size: 2.5rem;
+            .boton{
+                margin: 0.5rem;
+                padding: 1rem;
+            }
+            legend{
+                @extend %estilos-h3;
+                font-size: 2.2rem;
+            }
+        }
+
+    }
+
+}
+}

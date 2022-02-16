@@ -1,0 +1,71 @@
+/* base*/
+@import "../base/operaciones";
+@import "../base/variables";
+@import "../base/mapas";
+@import "../base/extends";
+@import "../base/mixins";
+
+
+/* NOSOTROS HTML */ 
+.containerNosotros{
+    display: grid;
+    min-height: $alturaprincipal - 300vh;
+    grid-template-areas: 
+    "nav nav"
+    "about about"
+    "prendas prendas"
+    "tabla tabla"
+    "footer footer";
+    grid-template-rows:  1.3fr 1fr 1.5fr 2fr 1fr;
+
+    .aboutUsUno{
+        grid-area: about;
+        p{
+            text-align: center;
+            font-size: 1.5rem;
+            color: $color-principal;
+        }
+        h2{
+            text-align: center;
+            font-size: 4.5rem;
+            font-weight: 1000;
+            color: $color-principal;
+            font-style: italic;
+        }
+        p{
+            span{
+                font-size: 1.5rem;
+                font-weight: bolder;
+            }
+        }
+    }
+    /* NUESTRAS PRENDAS */
+.prendas{
+    grid-area: prendas;
+    h3{
+        @extend %estilos-h3;
+        font-size: map-get($map: $medida-font, $key: 3rem);
+        color: $color-principal;
+    }
+    p{
+        text-align: center;
+        font-size: 2rem;
+        color: $color-principal;
+    }
+}
+/* TABLA DE TALLES */
+.tabla{
+    grid-area: tabla;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h3{
+        @extend %estilos-h3;
+        font-size: map-get($map: $medida-font, $key: 3rem);
+        color: $color-principal;
+    }
+    img{
+        @include sizes (40%,50%);
+    }
+}
+}
